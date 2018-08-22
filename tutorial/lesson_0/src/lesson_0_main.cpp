@@ -4,7 +4,8 @@
 #include <pcl/point_types.h>
 #include <pcl/point_cloud.h>
 //#include <pcl/point_representation.h>
-#include <pcl/io/pcd_io.h>
+// #include <pcl/io/pcd_io.h>
+#include <pcl/io/ply_io.h>
 //#include <pcl/filters/voxel_grid.h>
 //#include <pcl/filters/filter.h>
 //#include <pcl/features/normal_3d.h>
@@ -46,11 +47,11 @@ int main(int argc, char **argv)
 	if(argc < 2)
 	{
 		std::cout << "Usage:\n";
-		std::cout << argv[0] <<" point_cloud_file.pcd\n";
+		std::cout << argv[0] <<" point_cloud_file.ply\n";
 
-		std::cout << "Default:  ../../data/scan_Velodyne_VLP16.pcd\n";
+		std::cout << "Default:  ../../data/test_64.ply\n";
 
-		if(pcl::io::loadPCDFile("../../data/scan_Velodyne_VLP16.pcd", point_cloud) == -1)
+		if(pcl::io::loadPLYFile("../../data/test_64.ply", point_cloud) == -1)
 		{
 			return -1;
 		}
@@ -65,7 +66,7 @@ int main(int argc, char **argv)
 			return -1;
 		}
 
-		if(pcl::io::loadPCDFile(argv[1], point_cloud) == -1)
+		if(pcl::io::loadPLYFile(argv[1], point_cloud) == -1)
 		{
 			return -1;
 		}
